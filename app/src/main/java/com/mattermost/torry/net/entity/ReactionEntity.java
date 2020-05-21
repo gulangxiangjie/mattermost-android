@@ -1,8 +1,8 @@
-package com.mattermost.torry.net.model;
+package com.mattermost.torry.net.entity;
 
 import com.google.gson.annotations.SerializedName;
 
-public class ReactionModel extends MetadataModel {
+public class ReactionEntity extends MetadataEntity {
 
   @SerializedName("emoji_name")
   public String emojiName;

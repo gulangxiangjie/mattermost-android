@@ -2,13 +2,12 @@ package com.mattermost.torry;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
 import com.mattermost.torry.net.Api;
-import com.mattermost.torry.net.model.PostListModel;
+import com.mattermost.torry.net.entity.PostListEntity;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -30,15 +29,15 @@ public class MainActivity extends AppCompatActivity {
             .postsForChannel("mfpeh3cmufngpkonoh3iake8oc")
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(new Observer<PostListModel>() {
+            .subscribe(new Observer<PostListEntity>() {
               @Override
               public void onSubscribe(Disposable d) {
                 Log.d(TAG, "onSubscribe");
               }
 
               @Override
-              public void onNext(PostListModel postListModel) {
-                Log.d(TAG, postListModel.toString());
+              public void onNext(PostListEntity postListEntity) {
+                Log.d(TAG, postListEntity.toString());
               }
 
               @Override

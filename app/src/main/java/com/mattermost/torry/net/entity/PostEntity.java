@@ -1,4 +1,4 @@
-package com.mattermost.torry.net.model;
+package com.mattermost.torry.net.entity;
 
 import android.util.ArrayMap;
 
@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class PostModel {
+public class PostEntity {
 
   public String id;
   @SerializedName("create_at")
@@ -36,6 +36,6 @@ public class PostModel {
   public List<String> filenames;
   @SerializedName("file_ids")
   public List<String> fileIds;
-  public ArrayMap<String, List<FileModel>> metadata;
+  public ArrayMap<String, List<FileEntity>> metadata;
 
 }

@@ -1,8 +1,8 @@
-package com.mattermost.torry.net.model;
+package com.mattermost.torry.net.entity;
 
 import com.google.gson.annotations.SerializedName;
 
-public class FileModel extends MetadataModel {
+public class FileEntity extends MetadataEntity {
 
   public String name;
   public String extension;

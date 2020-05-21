@@ -14,10 +14,4 @@ public class CoreApplication extends Application {
     TfFontIcon = Typeface.createFromAsset(getAssets(), "fonts/iconfont.ttf");
   }
 
-  @Override
-  public void onTerminate() {
-    super.onTerminate();
-    Log.d("Kira", "Application terminated.");
-    TfFontIcon = null;
-  }
 }

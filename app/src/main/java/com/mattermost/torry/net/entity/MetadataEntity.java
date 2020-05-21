@@ -1,8 +1,8 @@
-package com.mattermost.torry.net.model;
+package com.mattermost.torry.net.entity;
 
 import com.google.gson.annotations.SerializedName;
 
-public class MetadataModel {
+public class MetadataEntity {
 
   public String id;
   @SerializedName("user_id")
