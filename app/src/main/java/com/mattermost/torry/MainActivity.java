@@ -2,21 +2,18 @@ package com.mattermost.torry;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.mattermost.torry.net.Api;
 import com.mattermost.torry.net.model.PostListModel;
-
-import java.io.IOException;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
+    TextView tv = findViewById(R.id.icon_font);
+//    tv.setText(R.string.font_location);
 
     Api.getInstance().postService()
             .postsForChannel("mfpeh3cmufngpkonoh3iake8oc")
