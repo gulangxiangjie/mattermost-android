@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="10dp"
+    android:background="@android:color/transparent">
+
+    <ImageView
+        android:id="@+id/avatar_left"
+        android:layout_width="@dimen/post_avatar_size"
+        android:layout_height="@dimen/post_avatar_size"
+        android:scaleType="fitXY"
+        android:src="@mipmap/ic_avatar_demo2"/>
+
+    <FrameLayout
+        android:id="@+id/left_spacer"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:visibility="gone"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:id="@+id/message"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:minHeight="@dimen/post_message_min_height"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/post_bubble_received"/>
+
+    <FrameLayout
+        android:id="@+id/right_spacer"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:visibility="gone"
+        android:layout_weight="1"/>
+
+    <ImageView
+        android:id="@+id/avatar_right"
+        android:layout_width="@dimen/post_avatar_size"
+        android:layout_height="@dimen/post_avatar_size"
+        android:scaleType="fitXY"
+        android:src="@mipmap/ic_avatar_demo2"/>
+</LinearLayout>

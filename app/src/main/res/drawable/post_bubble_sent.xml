@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/post_message_bg_sent" />
+    <corners android:topLeftRadius="@dimen/post_message_radius"
+        android:topRightRadius="@dimen/post_message_radius"
+        android:bottomLeftRadius="@dimen/post_message_radius"
+        android:bottomRightRadius="@dimen/post_message_radius" />
+</shape>

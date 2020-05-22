@@ -4,4 +4,8 @@
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="background">#FFFFFF</color>
+    <color name="post_message_bg_received">#fff0f0f0</color>
+    <color name="post_message_bg_sent">#ff3e9920</color>
+    <color name="post_message_text_color_received">#000000</color>
+    <color name="post_message_text_color_sent">#FFFFFF</color>
 </resources>
