@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="10dp"
+    android:gravity="bottom"
     android:background="@android:color/transparent">
 
     <ImageView
@@ -12,13 +13,6 @@
         android:layout_height="@dimen/post_avatar_size"
         android:scaleType="fitXY"
         android:src="@mipmap/ic_avatar_demo2"/>
-
-    <FrameLayout
-        android:id="@+id/left_spacer"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:visibility="gone"
-        android:layout_weight="1"/>
 
     <TextView
         android:id="@+id/message"
@@ -31,13 +25,6 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="@drawable/post_bubble_received"/>
-
-    <FrameLayout
-        android:id="@+id/right_spacer"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:visibility="gone"
-        android:layout_weight="1"/>
 
     <ImageView
         android:id="@+id/avatar_right"

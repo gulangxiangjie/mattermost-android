@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -25,6 +24,8 @@ import java.util.List;
 public class PostListAdapter extends RecyclerView.Adapter<PostListAdapter.Holder> {
 
   private static final String TAG = "Kira";
+  private final int VIEW_NORMAL = 0;
+  private final int VIEW_IMAGE = 1;
 
   private List<PostModel> posts;
 
@@ -35,7 +36,14 @@ public class PostListAdapter extends RecyclerView.Adapter<PostListAdapter.Holder
   @NonNull
   @Override
   public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-    View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.post_item, parent, false);
+    View view = null;
+    if(viewType == VIEW_IMAGE) {
+      view = LayoutInflater.from(parent.getContext())
+              .inflate(R.layout.post_item_file, parent, false);
+    } else {
+      view = LayoutInflater.from(parent.getContext())
+              .inflate(R.layout.post_item, parent, false);
+    }
     return new Holder(view);
   }
 
@@ -58,9 +66,11 @@ public class PostListAdapter extends RecyclerView.Adapter<PostListAdapter.Holder
                 .transform(new RoundImageTransformation())
                 .into(holder.ivAvatarLeft);
       }
-      holder.tvMessage.setText(post.message);
-      holder.tvMessage.setBackgroundResource(post.bgColorResId);
-      holder.tvMessage.setTextColor(holder.tvMessage.getResources().getColor(post.textColor));
+      if(holder.tvMessage != null) {
+        holder.tvMessage.setText(post.message);
+        holder.tvMessage.setBackgroundResource(post.bgColorResId);
+        holder.tvMessage.setTextColor(holder.tvMessage.getResources().getColor(post.textColor));
+      }
     }
   }
 
@@ -69,7 +79,16 @@ public class PostListAdapter extends RecyclerView.Adapter<PostListAdapter.Holder
     return posts.size();
   }
 
-  class RoundImageTransformation implements Transformation {
+  @Override
+  public int getItemViewType(int position) {
+    PostModel post = posts.get(position);
+    if(post != null && post.displayType == PostModel.TYPE_IMAGE) {
+      return VIEW_IMAGE;
+    }
+    return VIEW_NORMAL;
+  }
+
+  static class RoundImageTransformation implements Transformation {
 
     @Override
     public Bitmap transform(Bitmap source) {
@@ -101,20 +120,16 @@ public class PostListAdapter extends RecyclerView.Adapter<PostListAdapter.Holder
     }
   }
 
-  class Holder extends RecyclerView.ViewHolder {
+  static class Holder extends RecyclerView.ViewHolder {
 
     ImageView ivAvatarLeft;
     ImageView ivAvatarRight;
-    FrameLayout flLeftSpacer;
-    FrameLayout flRightSpacer;
     TextView tvMessage;
 
     Holder(@NonNull View view) {
       super(view);
       ivAvatarLeft = view.findViewById(R.id.avatar_left);
       ivAvatarRight = view.findViewById(R.id.avatar_right);
-      flRightSpacer = view.findViewById(R.id.right_spacer);
-      flLeftSpacer = view.findViewById(R.id.left_spacer);
       tvMessage = view.findViewById(R.id.message);
     }
   }

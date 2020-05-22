@@ -3,6 +3,6 @@
     <dimen name="post_avatar_size">36dp</dimen>
     <dimen name="post_message_text">18dp</dimen>
     <dimen name="post_message_min_height">36dp</dimen>
-    <dimen name="post_message_radius">18dp</dimen>
+    <dimen name="post_message_radius">20dp</dimen>
     <dimen name="post_message_radius_tiny">4dp</dimen>
 </resources>
